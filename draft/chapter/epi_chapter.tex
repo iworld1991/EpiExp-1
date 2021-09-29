@@ -1,0 +1,444 @@
+
+\provideboolean{Slides}
+\setboolean{Slides}{false}
+
+\begin{frontmatter}%%% Chapter Opener
+
+  \chapter[Chapter Title]{Epidemiological Expectations in Economics\footnote{We would like to thank xxx, xxx for comments.}}\label{chap1}
+
+  % \subtitle{Chapter Subtitle}
+
+  \author*[1]{Christopher Carroll}%
+  \author[2]{Tao Wang}%
+
+  \address[1]{\orgname{Johns Hopkins University}, \orgdiv{Department of Economics}, \orgaddress{Baltimore, Maryland}}
+  \address[2]{\orgname{Johns Hopkins University}, \orgdiv{Department of Economics}, \orgaddress{Baltimore, Maryland}}
+  \address*[3]{Corresponding: \email{twang80@jhu.edu}}
+
+  %% for running heads
+  % \authormark{First Author, Second Author and Third Author}
+  \titlemark{Part Title}
+  \chaptermark{Epidemiological Expectations in Economics}
+
+  \MaxmMiniTocnum{A.1}{3.3.3}{}
+
+  \minitoc
+
+  \makechaptertitle
+
+  \begin{abstract}[Abstract]
+    `Epidemiological' models of belief dynamics put social interactions at their core; such models are the main (almost, the only) tool used by non-economists to study how beliefs evolve in populations.  We survey the (comparatively) small literature in which economists attempting to model the consequences of beliefs about the future -- `expectations' -- have employed a full-fledged epidemiological approach to explore an economic question.  We draw connections to related work on narrative economics, news/rumor spreading, `contagion,' and the spread of online content. Finally, we discuss a number of promising directions for future research.
+  \end{abstract}
+
+  \begin{keywords}[Keywords:]
+    Economic Expectations \sep Epidemiological Expectations \sep Social interactions \sep Social dynamics \sep Information diffusion \sep Economic Narratives
+  \end{keywords}
+
+\begin{verbatimwrite}{./Slides/QuoteArrow1969}%%%Slides
+  \begin{quote}
+    While mass media play a major role in alerting individuals to the
+    possibility of an innovation, it seems to be personal contact that is
+    most relevant in leading to its adoption. Thus, the diffusion of an
+    innovation becomes a process formally akin to the spread of an
+    infectious disease.
+    \source{\href{https://github.com/iworld1991/EpiExp/blob/master/Literature/arrow_classificatory_1969.pdf}{\cite{arrow_classificatory_1969}}}
+  \end{quote}
+\end{verbatimwrite} %%%Slides
+\input{./Slides/QuoteArrow1969} %%%Slides
+
+\begin{verbatimwrite}{./Slides/QuoteSimon1984}%%%Slides
+\begin{quote}\ifthenelse{\boolean{Slides}}{\footnotesize}{}
+	A very natural next step for economics is to maintain expectations in
+	the strategic position they have come to occupy, but to build an
+	empirically validated theory of how attention is in fact directed within
+	a social system, and how expectations are, in fact, formed.
+	\source{\href{https://econpapers.repec.org/RePEc:eee:jeborg:v:5:y:1984:i:1:p:35-55}{\cite{simon_behavioral_1984}}}
+\end{quote}
+\end{verbatimwrite} %%%Slides
+\input{./Slides/QuoteSimon1984} %%%Slides
+
+\begin{verbatimwrite}{./Slides/QuoteShiller2017}%%%Slides
+  \begin{quote}
+    If we want to know why an unusually large economic event happened, we
+    need to list the seemingly unrelated narratives that all happened to be
+    going viral at around the same time and affecting the economy in the
+    same direction.
+    \source{\href{https://www.amazon.in/Narrative-Economics-Stories-Economic-Events-ebook/dp/B07RRDVTHY}{\cite{shiller2017narrative}}}
+  \end{quote}
+\end{verbatimwrite} %%%Slides
+\input{./Slides/QuoteShiller2017} %%%Slides
+
+\begin{verbatimwrite}{./Slides/QuoteInception2010}%%%Slides
+\begin{quote}
+An idea is like a virus. Resilient. Highly contagious. And even the smallest seed of an idea can grow.   --Cobb
+
+  \source{The movie Inception (2010)} % Tao: Fix citation
+\end{quote}
+\end{verbatimwrite} %%%Slides
+\input{./Slides/QuoteInception2010} %%%Slides
+
+  % \begin{points}[Chapter Points]
+  %   \begin{itemize}
+  %   \item{} The result of this approach is to produce a top-down view of it is a framework
+  %     that standardizes the manner in which organizations.
+  %   \item{} Complex data content, thereby reducing the overheads associated with acquiring,
+  %     organizing and managing data content.  Using such a framework in turn supports an incremental approach
+  %     to improving business applications.
+  %   \item{} Standardizes the manner in which organizations.
+  %   \end{itemize}%
+  % \end{points}%
+
+\end{frontmatter}%
+
+\section{Introduction}
+\label{chap1:sec1}
+
+It is a commonplace, in academia and popular culture, that ideas spread like diseases: they can be ``infectious'' or ``go viral.''  The proposition is hardly new; as \cite{shiller2017narrative} points out, it can be found at least as far back as \cite{humeenquiry},
+ whose ideas thoroughly infected the work of his friend \cite{smithwealth}.\footnote{See \cite{rasmussen2017infidel}.} Indeed, %with one notable exception (see below),
+ debates in fields other than economics are rarely about whether social interactions are fundamental; the debate is about which particular models for capturing social interactions are most suitable for understanding the spread of which kinds of ideas.
+
+``Expectations'' are just a category of ideas.  So upon being told that expectations play a critical role in structural economic modeling, a scholar who was not an economist might suppose that epidemiological models of  expectations would be a standard part of the economist's modeling toolkit --- unless there were good reason to suppose that economic ideas are immune to social influence.
+
+But evidence for social transmission of economic ideas is plentiful and has recently been growing by leaps and bounds -- see Section~\ref{subsec:microEvidence} for a sampling.  Still, it would not be accurate to say that an `epidemiological expectations' (`EE') approach is a standard way of constructing formal models of economic phenomena -- as a conventional off-the-shelf alternative, say, to a `rational expectations' (`RE') approach, the `Rational Inattention' (`RI') approach advocated by~\cite{sims2003implications}, or even to the `diagnostic expectations' model of~\cite{bordalo2018diagnostic}, or a number of bounded rationality approaches (e.g.,~\cite{gabaix2020behavioral}).
+
+Undoubtedly, one reason for this is that nowhere has any attempt been made to define what would constitute a full-fledged EE approach.
+
+Despite this handicap, there have been some notable examples of what what we would describe as full-fledged EE models, which we define as requiring the following elements (in addition to whatever might be included in a model in which expectations are determined in some other way):
+\begin{verbatimwrite}{./Slides/FullFledgedEE}
+\begin{quote}\normalfont
+\begin{enumerate}
+\item mechanism: \ifthenelse{\boolean{Slides}}{math by which idea(s) transmitted}{An explicit and rigorous mathematical description of an interaction in which idea(s) are transmitted among agents  ...}
+\item dynamics: \ifthenelse{\boolean{Slides}}{
+    ... that $\mathbb{E}$ dynamics (micro and popn) ...
+}
+{... that (at least in principle) generates observable expectation dynamics...}
+\item economic: \ifthenelse{\boolean{Slides}}{... those $\mathbb{E} \Rightarrow$ an economic outcome}{
+... and those expectations have knock-on consequences for an observable outcome (often, prices, quantities, or market values) that is a primary subject of the economic analysis}
+  \end{enumerate}
+\end{quote}
+\end{verbatimwrite}
+\input{./Slides/FullFledgedEE}
+  These criteria whittle down a vast number of invocations, or partial discussions, of the proposition that ideas spread through social interaction to the surprisingly small number of papers on which we primarily focus here.  (The last criterion allows us to neglect vast literatures on public opinion, politics, musical tastes, and other topics).
+
+\section{Background and Motivation}\label{motivation-and-context}
+
+% We begin with developments in connected areas that may be helpful in understanding the trajectory of epidemiological expectations modeling  in economics.
+
+\subsection{Expectational Heterogeneity}\label{EpiExpHet}\hypertarget{EpiExpHet}{}
+%\subsubsection{Expectations are Heterogeneous}\label{expectations-are-heterogeneous}\hypertarget{ExpectationsAreHeterogeneous}{}
+
+\begin{verbatimwrite}{./Slides/QuoteBrowningHansenHeckman1999}%%%Slides
+    In their introduction to the \textit{Handbook of Microeconomics}\href{http://larspeterhansen.org/wp-content/uploads/2016/11/Microdata-and-GE-Models.pdf}{Browning, Heckman, and Hansen \citeyear{browning_chapter_1999}}, wrote that the most universal lesson of micro economics is that ``people are different in ways that importantly affect their economic behavior.''
+\end{verbatimwrite}%%%Slides
+\input{./Slides/QuoteBrowningHansenHeckman1999}%%%Slides
+\begin{verbatimwrite}{./Slides/subsubsecExpAreHet}
+
+\end{verbatimwrite}
+    Over the subsequent two decades, a great deal of the progress in macro economics has come from incorporating microeconomic heterogeneity ``in ways that importantly affect'' macroeconomic behavior.  (See ``Macroeconomics and Heterogeneity'' in the 2020 \textit{Handbook of Macroeconomics} \cite{kmpHandbook}).  In particular, Heterogeneous Agent  (`HA-Macro') models that match the distributions of income and wealth
+    have now provided rigorous microfoundations for Keynesian macroeconomics by capturing measured heterogeneity in (and a large average value for) the marginal propensity to consume -- see \cite{violante_marginal_2021}'s Laffont lecture.
+
+%\subsubsection{Expectational Heterogeneity Is Rarely Modeled}\label{Expectational-heterogeneity-is-rarely-modeled}\hypertarget{expectational-heterogeneityIsRarelyModeled}
+    But only a few structural models in the HA-Macro literature have allowed for differences in agents' expectations about variables like stock returns (where everyone's realized outcome will be identical) -- even though disagreements on such subjects are large and people make choices that correspond -- at least somewhat --  to their expressed beliefs (\cite{gmsuBeliefs}).
+
+    Partly, the omission of expectational heterogeneity may reflect the fact that until recently there was not widespread awareness among macroeconomists that measurable microeconomic expectations have considerable power to explain observable microeconomic behavior -- see the published discussions in the 2017 NBER Macroeconomics Annual of~\cite{manski2017survey}'s paper surveying the literature on the measurement of expectations, in which Manski himself has been the leading figure (and until recently something of a lone voice crying in the wilderness).%, until the  recent change reflected upon in the favorable reception of his paper both by his discussants and by the conference attendees.
+
+    Other signs of the new focus on the measurement of expectations are developments like the commissioning of this \emph{Handbook of Economic Expectations}, the creation of the \emph{Survey of Consumer Expectations} by the Federal Reserve Bank of New York in 2014 % Tao: citation
+    (and several similar surveys in other places), and the fact that questions on expectations have begun to be added to existing surveys like the ones used for calibrating HA-Macro models.  %The HRS, for example, collects expectations about stock returns, and~\cite{mv77PortfolioNonPuzzle} shows both that HRS respondents are systematically pessimistic (relative to economists's views) and that the more pessimistic a respondent is, the less likely they are to invest.
+
+    But EE modeling approaches may be particularly appealing now as a result of the emergence of new \emph{kinds} of data.  In particular, for the first time ever, it is now becoming possible to directly observe economic expectations spreading over social networks -- as is done in the paper we describe below by~\cite{bailey2018economic}.
+
+\subsection{Epistemology and Epidemiology}
+
+    One aspect of the EE approach that seems to trouble economists more than scholars from other fields is the requirement to specify a source for the idea(s) whose spread is being modeled.
+
+    The Rational Expectations approach gets around this problem (even in the HA-Macro world) by making some rather bold assumptions (there is only one `true' model of the world; everyone believes the same true model; everyone observes all relevant facts and draws the same conclusions from them; and so on).  %The reward for this steep price is that often RE models have a unique and testable equilibrium.
+
+    Such models are often not easy to understand, and is not unreasonable to worry that the added complexity from an epidemiological mechanism of belief transmission will add more confusion than explanation.
+
+    One solution is for economists to study models with agents whose expectations formation mechanism is `tunable' in the degree to which it differs from better-understood models (RE or not).  This should not be too hard:  If the only `source' of ideas is an agent who believes in the rational expectations solution, and the infection rate is 100 percent, the solution will be the rational expectations solution.  More interesting epidemiological mechanisms can build from there.
+
+    In fact, most of the examples of EE models we highlight are of this kind: There is some parameter or set of parameters can be set to zero (or infinity, or some other specific value), causing the model to collapse to an off-the-shelf rational expectations model.  See section~\ref{subsec:macroExp} for discussion of some specific examples.
+
+\begin{comment}
+    The literature's many informal references to epidemiological ideas indicate  that economists are familiar with these ideas and find them tempting.  The hesitancy to adopt explicitly epidemiological methods in the analysis of standard economic questions therefore seems unlikely to reflect a consensus that there are no plausible epidemiological models; it seems more  likely to reflect a concern that there are too many.  Without considerable further discipline beyond the proposition that `ideas spread like diseases' it is not unreasonable to worry about whether an `epidemiological expectations' approach is sufficiently well defined to be worth exploring.
+%\subsubsection{Why Identical Rational Expectations Remain the Default}\label{subsubsec:expectations-are-heterogeneous}\hypertarget{WhyIdentical RationalExpectationsRemainTheDefault}{}
+     ``Rational Expectations'' (`RE') -- which in this context really means `identical expectations' --  remains a default at least partly because it usually can generate unique and testable predictions for the dynamics of aggregate variables.
+
+    But several counterpoints are worth emphasizing.
+
+    The first is that expectations are \textit{measurable}, and increasingly measured in the kinds of micro datasets used to calibrate and simulate HA-macro models.  All survey data (including income and wealth) need to be treated carefully to guard against measurement problems, and the extensive literature on the measurement of expectations suggests that those data should be treated with particular care -- but also demonstrates that robust information is contained in the answers to such questions.
+
+    Thus, EE models have a source of discipline unavailable in the RE framework. This fact could help counter concerns about whether such models provide too many degrees of freedom to be usefully testable.
+
+
+    % -- even if solving RA models in the presence of nonexpectational heterogeneity (wealth; income) is a major challenge.  %But the HA-Macro literature has helped macroeconomists get comfortable with results that emerge from the simulation of large populations of agents all of whom are in different circumstances.
+
+\begin{comment}
+    RE also corresponds rather directly to philosophers' traditional formulation of how humans can come to know things: A solitary reasoner has some fundamental assumptions about the world and makes logical/mathematical deductions to construct beliefs about things not directly observable (like, the future).\footnote{See Bertrand~\citep{russell1946history} for a history that traces these ideas all the way back to Plato and Aristotle.}%\footnote{\cite{broad1952ethics} is a descendant of Hume's: \href{https://en.wikipedia.org/wiki/Problem_of_induction}{``Induction is the glory of science and the scandal of philosophy''.}}
+
+    Yet even in philosophy there is a growing recognition that most knowledge that people (think they) possess cannot possibly be so hard-core.  As \cite{coady1992testimony}, an early advocate of ``social epistemology,'' puts it, many of us have never directly observed the delivery of a baby, yet we have firm convictions about how it happens.  And most of us have not mastered the skills necessary to prove by personal observation of sunrises and sunsets (and intricate mathematical deduction) that the Earth is (roughly) spherical.  We believe that the Earth is spherical, and a great many other things, because to a large degree we trust the testimony of other people who tell us that they have collected the facts and done the math.
+
+    %In some cases, the RE equilibrium is the eventual limit of a process of social interaction (a model of scientific belief transmission may imply that there are fewer members of the Flat Earth Society with each passing year).  But even in those epidemiological models where convergence occurs, a difference with the RE model is that the process of reaching consensus takes time rather than being instantaneous.
+
+    % Keynes quotes:
+
+    % "If we speak frankly, we have to admit that our basis of knowledge for estimating the yield ten years hence of a railway, a copper mine, a textile factory, the goodwill of a patent medicine, an Atlantic liner, a building in the City of London amounts to little and sometimes to nothing"
+
+    % "Even apart from the instability due to speculation, there is the instability due to the characteristic of human nature that a large proportion of our positive activities depend on spontaneous optimism her thanher than on a mathematical expectation, whether moral or hedonistic or economic. Most, probably, of our decisions to do something positive, the full consequences of which will be drawn out over many days to come, can only be taken as a result of animal spiritsof a spontaneous urge to action rather than inaction, and not as the outcome of a weighted average of quantitative benefits multiplied by"
+
+    % The sensible question, then, is how best to model the ways in which external sources of information produce individuals' beliefs. %This is the potential point of entry for epidemiological models:  As a mathematical or computational matter, there is little difference in the set of ways in which information might be transmitted from person to person (or common source to person) and the ways in which infection might be transmitted.
+\end{comment}
+
+\subsection{Epidemiology on Networks}
+%\subsubsection{Consequences of Social Transmission}\label{subsubsec:Consequences-of-Social-Transmission}\hypertarget{ConsequencesOfSocialTransmission}{}
+
+    For short, we use the word `classical' to refer to epidemiological models that descend from the work of \cite{kermack_contribution_1927}, who formulated the problem as one of tracking the size of `compartments' of the population in different disease states (like susceptible or infected) under a `random mixing' assumption in which all members of the population were equally likely to encounter each other in a time interval.  The random mixing assumption, along with the use of continuous time and real numbers for the compartment sizes, allowed the problem to be described by a set of differential equations which could be solved numerically even in 1927.
+
+    A more recent literature also examines the social transmission of beliefs and satisfies any reasonable interpretation of  an `epidemiological' approach:  A large body of work using the tools of `network theory' studies models in which the `nodes' in a graph are interpreted as people and the `edges' are social connections between nodes, and the analysis aims to determine the consequences of modeling assumptions for the structure and flow of information (or beliefs, or ideas) in a finite population of agents over discrete time steps.\footnote{The mathematical formulation of network theory, or graph theory (the boundary between these is porous) is usually attributed to Leonhard Euler, in his solution to a problem of geography -- the ``Bridges of Konigsberg.''}  A standard reference for economists is the textbook by~\cite{jackson_social_2010}.
+
+    While the two approaches seem quite different, it turns out that the network theory tools can be configured in such a way as to produce an arbitrarily close approximation to the solution to the original classical problem.  But they can also study a great many other essentially epidemiological questions that could not even be formulated in the classical setup.  (Network theory has also been used to study a wide range of questions in game theory and other fields quite distant from epidemiology.)
+
+    %\subsubsection{Its A Small World After All}\label{subsubsec:Its-A-Small-World-After-All}\hypertarget{ItsASmallWorldAfterAll}{}
+
+    One well-known network theory result that (to some extent) helps bridge the two approaches is the ``Small World'' effect first explained by~\cite{wsSmallWorld}, who articulate conditions under which even a small number of social connections can define a network in which virtually everyone is connected to everyone else by a small number of links.  \cite{barabasi2016network}'s summary is that when network models are calibrated to match measurable facts about human connections (or, for that matter, internet links), the ``interconnectedness'' phenomenon is extremely robust (which they point out holds across many competing models).
+
+    This provides a satisfying explanation for a phenomenon first documented by \cite{milgram1967small}, who famously found that, on average, any two randomly selected people in the U.S.\ population were able to identify intermediate links of personal friends and friends-of-friends (and so on) by which they were connected, with the typical length of the chain involving only six people.\footnote{This is another example of crossover appeal in popular culture, having spawned John \cite{guareSixDegrees}'s play \href{https://en.wikipedia.org/wiki/Six_Degrees_of_Separation_(play)}{`Six Degrees of Separation'} a  \href{https://en.wikipedia.org/wiki/Six_Degrees_of_Separation_(film)}{movie} adaptation, a popular \href{https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon}{parlor game}, and other byproducts like calculators for the degrees of separation between \href{https://oakland.edu/enp/}{academics}).}  For our purposes, the interesting insight is that the ``Small Worlds'' phenomenon may suggest that the `random mixing' assumption typically made (and frequently objected to) in `classical' epidemiological models may not be as problematic as it might seem at first.
+
+    % Although it is not usually motivated that way, a useful alternative foundation for the `identical foundations' approach can easily be constructed in a world where people trust external sources.
+
+    %A vast literature outside of economics has investigated questions of this kind, as applied to topics like the diffusion of scientific knowledge~\cite{bettencourt2006power} or religious beliefs (\cite{hayward2018mathematical}).
+
+    %The key point is best understood as follows.
+
+    %A large literature in mathematics, beginning with \cite{erdos1960evolution}, has developed the pure theory, and more recently computational tools have allowed numerical investigations, but a fair distillation of much of this work would be to say
+
+    % In this light, the fact that there are a few remaining members of the Flat Earth Society could be interpreted as evidence in favor of the philosopher-economist's point of view; those might be the unlucky people who made a math mistake which implied a pancake-shaped Earth, which could maybe be described as ``flat.''  Their imperviousness to the testimony of others could be interpreted as exemplifying people's ability to reach their own conclusions without regard to the common opinion of the crowd.
+
+    % But the fact that almost everyone is ``connected'' in this sense is hardly sufficient to justify a conclusion that everyone has identical beliefs about everything.  That would require very strong auxiliary assumptions about the nature of communications across links.
+
+    A distinct advantage of the `network' approach over the classical epidemiological approach is the extent to which, especially with modern computational tools, a network modeler can examine the consequences of almost arbitrarily rich assumptions about the exact nature of interactions between agents.  A key theme of the network literature is that even in a fully connected world, it is easy to construct models in which disagreement persists indefinitely (\cite{acemouglu2013opinion}) and subpopulations converge to different beliefs~\cite{sikder2020minimalistic}.  (The `clustering coefficient' which captures the extent to which your friends know each other is often -- though not always -- important in such models).
+
+    % that would follow only under a host of additional assumptions which have widely varying plausibility for different kinds of knowledge or information transmission.  As a result, our survey will highlight models that deviate in interesting ways from the framework specified above.
+
+\subsection{Expectational Tribes}\label{subsec:ExpTribes}
+
+    We conclude the motivation by presenting some evidence that seems particularly compelling because it illustrates a recent clear failure of `identical beliefs' with consequences for choices in an area that is core to both micro and macro modeling: financial risk-taking.
+
+    \href{https://github.com/iworld1991/EpiExp/blob/master/Literature/meeuwis2018belief.pdf}{\cite{meeuwis2018belief}}, using a dateset on millions of retirement investors from a large financial institution, show that after Donald Trump's surprise victory in the U.S.\ 2016 Presidential election, investors likely to be affiliated with Republican Party (inferred from  campaign donations at the zip code level) increased the equity share in their portfolio, while (likely) Democrats rebalanced into safe assets. These choices occurred at exactly the same time that consumer sentiment surveys showed that self-identified Republicans had suddenly become more optimistic, and Democrats more pessimistic, about the economy's prospects over the next few years.  The paper's rich dataset allows the authors to persuasively rule out non-belief-based channels (like income hedging needs, preferences, or local economic exposure). %Moreover, such differences in investment behaviors are found for investors working at the same employer and living in the same county.
+
+%    After we articulate alternative epidemiological models of the spread of ideas, we will be in a position to discuss how evidence of this kind can be useful in winnowing the field of models.
+
+\centerline{    [Insert Figure \ref{fig:parker} here]}
+
+%    Some remaining assumptions that could justify an `identical expectations' equilibrium would be (1) there is a single, unambiguous truth about the state of the world; (2) all agents who make an observation about the world would perceive the same truth; (3) all agents truthfully communicate all their observations to all their links instantaneously; (4) everyone agrees about the correct model of how the world works.'
+
+%    These assumptions effectively resurrect the identical expectations equilibrium in a framework where social communications exist, but achieve instantaneous and complete homogeneity in beliefs.  We can think of all of the epidemiological/network models discussed below as deviations, in one respect or another, from this perfect-trust instantaneous-transmission perfect-agreement framework.
+
+
+\section{What insights can the epidemiological framework
+  offer?}\label{what-insights-can-the-epidemiological-framework-offer}
+
+\subsection{What Is an Epidemiological Framework?}
+\label{subsec:epi_framework}
+
+We will say that ideas, beliefs, `narratives,' or other mental states that can affect behavior
+(henceforth, `expectations' will be shorthand for all of these) are the result of an ``epidemiological'' process whenever they are modeled as resulting from some social interaction.
+
+This is a slightly narrower scope than the mechanisms encompassed in textbook
+definitions of epidemiology, which can include the study of diseases that develop without any identifiable external influence.  The category of epidemiological models we are interested in is those for ``transmissible'' diseases.
+
+But the transmission need not be person-to-person.   ``Common source''  diseases do not involve any one-on-one contact; for example, cosmic radiation to which everyone is exposed can cause diseases like cancer.  People living in caves would be less susceptible; those on mountaintops, more.
+
+In the context of expectation formation a natural interpretation of such a ``common source'' is news media.
+
+\begin{comment}
+Having clarified this boundary, epidemiological models that are relevant for us vary in a few fundamental ways:
+\begin{quote}\normalfont
+\begin{enumerate}
+\item the states that agents could possibly experience
+\item the process by which an agent's state can change via social communication
+\item the channels of social communication
+\item heterogeneity or evolution over time that affects any of these
+\end{enumerate}
+\end{quote}
+\end{comment}
+Probably the simplest epidemiological model is a `common source SI model.'  In this case a continuous population is divided into two `compartments': Persons in compartment `I' have been infected with the disease (and can never recover), while persons in compartment `S' are not yet infected.  The mathematical expression of the `common source' assumption is simply that the probability that any particular susceptible person will become infected is time-independent.  (If the model is specified in continuous time, it is a Poisson process; in a discrete time, a Bernoulli process).
+
+For a population that begins at discrete date zero with a susceptible population of size 1, the dynamics of the discrete-time version of the model are given by Table~\ref{table:SIDyn}, with the obvious implication that as $n$ approaches infinity the entire population eventually becomes infected.
+
+\begin{verbatimwrite}{./Tables/SIDynCS}
+\begin{table}[h]\label{table:SIDyn}
+\centering
+\caption{Common Source SI Model}\medskip
+    \begin{tabular}{ccc}
+        \hline
+        Date & Susceptible & Infected \\
+        \hline
+        0 & $1$  &  $0$ \\
+        \hline
+        1 & $(1-p)\phantom{^2}$ & $1-(1-p)\phantom{^2}$ \\
+        \hline
+        2 & $(1-p)^{2}$ & $1-(1-p)^{2}$ \\
+        \hline
+        $\vdots$ & $\vdots$ & $\vdots$ \\
+        \hline
+        $n$ & $(1-p)^{n}$ & $1-(1-p)^{n}$ \\
+        \hline
+    \end{tabular}
+\end{table}
+\end{verbatimwrite}
+\input{./Tables/SIDynCS}
+
+This modeling framework can be extended in many directions.  The usual next step is to have the disease be transmitted from agent to agent by `random mixing' which leads to the most familiar subclass of the SI modeling family, in which each susceptible person in contact with an infected person becomes infected with a probability $\beta$ in each period. Then in the discrete-time formulation, given a non-zero initial infected fraction $I_0$, the fraction of infected and susceptible evolves as below.
+
+\begin{verbatimwrite}{./Tables/SIDynTrans}
+\begin{table}[h]\label{table:SIDynTrans}
+    \medskip
+\caption{Transmissible SI Model}
+\centering\medskip
+	\begin{tabular}{ccc}
+			\hline
+		Date & Susceptible & Infected \\
+			\hline
+		0 & $S_0$  &  $I_0$ \\
+			\hline
+		1 & $S_0 - \beta S_0I_0$ & $I_0+\beta S_0I_0$ \\
+			\hline
+		2 & $S_1-\beta S_1I_1$ & $I_1+\beta S_1I_1$ \\
+			\hline
+		$\vdots$ & $\vdots$ & $\vdots$ \\
+			\hline
+		$n$ & $S_{n-1}-\beta S_{n-1}I_{n-1}$ & $I_{n-1}+\beta S_{n-1}I_{n-1}$ \\
+			\hline
+	\end{tabular}
+\end{table}
+\end{verbatimwrite}
+\input{./Tables/SIDynTrans}
+
+The best-known epidemiological framework adds one more potential state to ``susceptible'' and ``infected'':  `R' can be used to designate either recovery or `removal' (via, say, death); this yields the rich set of `SIR' models first proposed by \cite{kermack_contribution_1927}, who formulated the transition equations as a system of continuous time nonlinear differential equations.
+
+The SIR model has rich and interesting implications, such as the potential for `herd immunity' which comes about when a high enough proportion of the population has either Recovered or otherwise been Removed (say, by vaccination) from the pool of those who are susceptible to infection.
+
+Unfortunately, the model's equations do not have finite closed-form analytical solutions,\footnote{\cite{miller20212note} and \cite{harko2014exact}  produce alternative formulations of what they call analytical solutions -- see   \href{https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology\#Transition_rates}{this Wikipedia page} -- but both involve an integral that can only be calculated numerically, so neither is available in closed form.  These amount to convenient modern restatements of the original \cite{kermack_contribution_1927} model.}, so solutions must be obtained using numerical computational procedures -- though with current computational technologies such computations for the original \cite{kermack_contribution_1927} model have negligible cost.
+
+Potential modeling choices proliferate from there.\footnote{For a general introduction to these model basics, we refer the reader to \href{https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology\#Transition_rates}{this Wikipedia page}. Epidemiologists use the term `compartmental models' refer to models in which people transition between states like susceptible and infected.  References to such models include	 \href{https://royalsocietypublishing.org/doi/10.1098/rspa.1927.0118}{\cite{kermack_contribution_1927}},  \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3710332/}{\cite{bailey1975mathematical}}, \href{https://www.amazon.com/Infectious-Diseases-Humans-Dynamics-Control/dp/019854040X}{\cite{anderson_infectious_1992}}, \href{https://epubs.siam.org/doi/abs/10.1137/S0036144500371907}{\cite{hethcote_mathematics_2000}}, \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6001967/}{\cite{brauer2017mathematical}}.}.  A framework in which there are two possible outcomes of the infection, recovery or death, receives the acronym SIRD.  If the disease is one in which it is necessary to track the proportion who have been Exposed but are not yet (and may never become) infected, the model is an SEIR model -- and so on.
+
+%Some variants do not have additional states but allow additional transitions among the states already treated (presumably, except for state `D'). For instance, the SIS model allows the infected (I) to transit back to susceptible (S) if immunity to the disease declines after some time.
+
+The standard assumption for all of these models is that agents are ex-ante homogeneous, but the framework can be extended to permit various kinds of heterogeneity -- at the cost of adding whole new systems of nonlinear equations to the set of things that must be solved numerically.
+
+In practice, the standard procedure now is to cast the problem in a form that can be solved using the powerful modern computational tools developed for the analysis of network theory/graph theory models (as we illustrate in our example below).  Such an approach can produce a solution to any classical model because the network can be configured to effectively correspond to a numerical approximator for any continuous model.
+%Another extension of these models incorporates the possibility that some agents may take protective actions to change the transition probabilities, instead of taking them all as exogenous.
+
+%We will stop our description of the  epidemiological literature here because our purpose was more to introduce the kinds of modeling assumptions that are often considered there.
+
+Some of the disease states above have a natural interpretation in a model of expectations: A person who has adopted an idea from someone else can be said to have been `infected' by that idea.  Some are less natural; e.g., there is usually not an obvious analog in expectations models of the `recovered' state (though our survey below will describe some examples).
+
+%The art of building a good model boils down to the choices articulated above: states, transitions, and the nature of heterogeneity.
+
+%In some dimensions, close analogies can be drawn between the two applications.  Like an infected disease, an idea/opinion/certain view of the economy can spread via interpersonal contacts from those who have held it already, i.e. the infected (I) to those who are exposed to it (E) or who are potentially receptive to them (S), and it may also be forgotten, i.e. recovery (R).  Furthermore, the agents could be either ex-ante homogeneous or heterogeneous and the transmission of the expectations could be specific to agent types and their locations in the network.
+
+\subsubsection{Adapting the Disease Metaphor to Expectations}\label{subsubsec:AdaptingTheModel}
+\hypertarget{AdaptingTheModel}{}
+
+Epidemiologists are usually interested in studying the dynamics of a single disease in a population, where there is a natural terminal stage like recovery or death.  Economists will often be interested in keeping track of how expectations change about an aggregate variable like stock prices, which does not have a terminal point and in which many competing opinions may infect different people at the same time.
+
+An advantage of the network theory formulation of epidemiological models is that it can easily accommodate dimensions in which an economic application may call for such modifications.  In a finite population of agents, it is a trivial matter to represent as many competing `diseases' (theories of stock prices) as desired, and there is no need to specify a `recovery' state (though perhaps bankruptcy might substitute for death ...)
+
+To take a more complex example, in classical epidemiological models it would be painful (though possible) to capture dynamics of a disease in which people become  ``more’’ infected after repeated contact with other infected people.  But in a network model, it is easy to capture the proposition that
+a person may need to be exposed to an idea more than a certain number of times, or from more than a given number of sources, before they will adopt it -- as~\cite{jackson2007diffusion} proposed (see the interesting discussion of such `threshold models' in \cite{glasserman2016contagion}.)
+
+Another direction that epidemiological expectations models constructed by economists might take is to consider the implications of purposive behavior that might enhance (or impede) the flow of information.  For example, the widely used Michigan survey of consumers asks respondents their views on long term interest rates. If the respondent is one who recently bought a house, they may have deliberately `infected' themselves by doing some research on mortgage interest rates; in that case they might resemble a fully informed  agent.  But after the homebuyer has obtained a mortgage, there may be little  reason  for them to pay attention to long run interest rates.  It is not implausible that their views on rates will be shaped passively by random encounters with news sources or friends -- encounters that are better understood with an epidemiological framework than in a model in which the consumer is either perpetually fully informed or, for that matter, perpetually calculating the exact degree to which it would be optimal for them to choose to be fully informed.
+
+%But there should be limits.  For EE as a framework to be sufficiently well-defined to be useful as an alternative to RE or other general-purpose expectational frameworks, it seems likely that it will be necessary to rule out the complexities that can arise in game theoretic uses of network theory.    The natural way to do that is to assume that consumers believe themselves to be infinitesimal:  They believe that they do not, personally, have the ability to affect equilibrium outcomes that matter to them.
+
+%Using the foregoing introduction as a high-level map and definition of terms, our next section explores in some detail the varieties of ``epidemiological'' modeling strategies that have been used (or could be used) for economic modeling.
+
+\begin{comment}% Not sure what good this "plausible applications" section does here -- maybe move to conclusion?
+\subsection{Plausible Applications of Existing  Tools to Economics}
+
+We begin by sketching, among the many directions the epidemiological literatures have already explored, the ones likely to be most useful to economists.
+
+\begin{itemize}
+\item  How geography structures the connections between people
+\item The structures of social networks as measured by social media connections
+\item  Consequences of heterogeneity in, say, likelihood of infection given exposure
+\item  Characteristics of models in which people's views do not converge but instead may result in groups of like-minded people \citep{meeuwis2018belief}.
+\end{itemize}
+
+The explicit end goal of much recent work has been to construct models that can match some of the newly available forms of data that we can increasingly map in high fidelity.
+
+% Math
+%While the original model of \cite{kermack_contribution_1927} and its immediate descendants were represented by simple differential equations that could be analyzed by hand, today's epidemiological models have become so complex that they cannot be studied effectively with pen and paper.  Instead, the details of the framework are constructed, then a population of simulated agents is created who abide by those rules of the game, and the population is simulated computationally in order to determine the model's implications.  (Reference the notebook again).  A paper is viewed as a finished contribution if it matches some of the patterns in a dataset.
+
+A highly cited example \cite{bauckhage2011insights} which uses a variety of epidemiological models in an attempt to explain the dynamics of
+popular internet ``memes.'' The attempt meets with some success in the sense that the author finds some examples in which one of the many
+variants of the SIR, SIER, and epidemiological frameworks seem to (ex post) be able to match the spread of, say, a photograph of a laughing baby, or the ``montauk monster.''  Much of the analysis has been somewhat solipsistic, in the sense that there is often not any attempt to measure (much less to model) knock-on consequences for variables other than the information itself.
+
+A more recent literature has examined the differential rates at which different kinds of ``news'' spreads, reaching an interesting conclusion that ``misinformation'' seems to spread more readily than true stories\citep{vosoughi_spread_2018}. And there is a rapidly growing literature on potential implications of the spread of ideas for political outcomes like election victories \citep{allcott2017social, grinberg2019fake} -- though even papers in that literature often do not present an integrated analysis of the structural mechanisms of the epidemiological process with the empirical consequences at the ballot box.
+
+And we are not aware of any papers in this vast literature in which there is a mapping from the structure of a model to an economic outcome that is a consequence of that structure, much less of a fully rounded model that explores the ramifications of that economic outcome on future dynamics of ideas.
+
+The best way to view all of this is probably as an arbitrage opportunity: Economists can take models of belief dynamics created in this literature and plug them into an economic model to determine their consequences (if any) for an economic phenomenon of interest, with standard economic modeling supplying the elements of the criteria above (like feedback between the spread of ideas and the economic outcomes) that are missing from the existing literature.
+\end{comment}
+
+\input{subparts/shiller_pound.tex}
+
+
+\section{Literature}\label{survey-of-the-literature}
+
+%\subsection{Three Fields With Full-Fledged EE Models}
+
+    [Insert Figure \ref{fig:graph_mixer} here]
+
+We have identified three fields in economics in which there is a set of papers that satisfy all our criteria for having employed a full-fledged EE modeling approach to an economic question -- even if in some cases the work has not been mainly thought of as `epidemiological' until now.  In the order of the  appearance of the relevant work, the contributions are described in the subsections below on Diffusion of Technology \ref{subsubsec:techDiffusion}, Financial Markets~\ref{subsec:assetprice}, and Macroeconomics~\ref{subsec:macroExp}.\footnote{Somewhat in defiance of the intellectual framework's motivating idea, these literatures have developed largely independently of each other, judging at least by the almost complete independence of the citation networks connecting them (see our figure~\ref{fig:graph_mixer}). The only paper that is cited by all three of the literatures is the foundational paper by \cite{kermack_contribution_1927}, and the number of citations across the literatures is negligible.}
+
+Following these three coherent literatures we address a miscellany of topics including the relationship of epidemiology to what are called models of `contagion' in economics and finance; a compilation of what we think is the most interesting evidence for the epidemiological mechanisms of the transmission of economic expectations; and the highlights most likely to be interesting to economists of the application epidemiological models of the spread of information outside economics.
+
+\input{subparts/tech_diffusion.tex}  % by Tao
+\input{subparts/finance.tex}    % by Tao
+\input{subparts/macro_expectation.tex}  % by Chris
+%\subsection{Related Work}
+
+\input{subparts/contagion_bank_run.tex} % by Chris
+\input{subparts/micro_evidence.tex} % by Tao
+\input{subparts/non-econ.tex} % by Tao
+
+\subsection{Literature Summation}
+
+We have barely scratched the surface of the scholarly literature that has interesting evidence about and models for the ways in which social interactions shape population beliefs.  Even within economics, where the topic has received less attention than might be expected, there is so much material that we are confident that we have missed some content that should probably have been included, for which we hereby apologize to the authors and would encourage them to get in touch.
+
+One unifying point is that many similar themes seem to have emerged independently using a number of different approaches and from scholarly communities who seem largely unaware of each others' existence.  Often quite different terminology has developed for ideas that are close cousins, and this may have hindered the ability of participants in distant fields to recognize the similarity of their work.
+
+For example, the work we have cited above on ``social learning'' in macroeconomics involved the propagation of ideas (forecasting rules) in a population with heterogeneous beliefs.  Our view is that this work satisfied our criteria that it addressed a substantive economic question using a mechanism by which beliefs were transmitted by an explicit mechanism of social interaction: The rules that work better, basically, are more infectious.  But the authors make no mention of the epidemiology literature.
+
+Nor do they make any mention of Shiller's longstanding view that economic dynamics reflect the competition of `narratives' that `go viral.'  A good case could be made that the authors' forecasting rules are exactly how one might want to make a computational representation of what Shiller calls a `narrative' and that the economic dynamics that result from the increasing prevalence of the rules that succeed in the `tournaments' are a good representation of the consequences of narratives `going viral.'
+
+Reciprocally, neither Shiller nor the recent work following his lead shows any awareness of the ``social learning in macroeconomics'' literature.
+
+One of our ambitions for this survey is for it to infect scholars with the idea that it is useful to express the mechanisms of their models, as much as possible, in a common language drawn as much as possible from the familiar domains of epidemiological modeling and network theory:  Infectiousness, susceptibility, transmissibility, exposure, immunity, mixing, clustering coefficients, reproduction rates, degree distributions, and so on, in addition to whatever domain-specific terminology may be natural to their particular topic.
+
+\section{Conclusion}
+\input{subparts/conclusion.tex} % by Chris
+
+%%%%%%%%%%%%%%%%%%%
+%% tables and figures
+%%%%%%%%%%%%%%%%%%
+\newpage
+\input{table_figure.tex}
+
+%%%% To be used for Chapter-wise bibliography with the help of "chapterbib" package.
+%%%% Also use the natbib package option "sectionbib" with your template.
+%%%% The "chapterbib" package and its documentations are available in:
+%%%% http://www.ctan.org/tex-archive/macros/latex/contrib/cite.
+
+\section*{REFERENCE}
+\addcontentsline{toc}{section}{Reference}
+%%
+\bibliographystyle{apalike}
+%\bibliographystyle{plainnat}
+% \bibliographystyle{Vancouver-Numbered-Style(3)}
+
+\bibliography{reference,Add}
+
+%

@@ -1,0 +1,70 @@
+\begin{backchapter}
+\begin{frontmatter}
+\chapter{Constants and Conversion Factors}\label{app1}
+\makechaptertitle
+\end{frontmatter}
+
+\def\thesection{\thechapter.\arabic{section}}
+
+
+\section{Constants}\label{app1:sec1}
+
+To solve the Schr\"{o}dinger equation for the harmonic oscillator given, we
+first multiply the equation through with
+$-2m/\hbar^2$ and bring the term on the right-hand side of the equation over to the left-hand side to obtain
+\begin{equation}\label{app1:eq1}
+\frac{{\rm d}^2\psi}{{\rm d}x^2}-\frac{m^2\omega^2}{\hbar^2}x^2\psi+\frac{2mE}{\hbar^2}\psi.
+\end{equation}
+
+This equation can be further simplified by introducing the change of variable
+\[
+y=\alpha x,
+\]
+where $\alpha$ is a constant yet to be specified. This last equation can be written
+\begin{equation}\label{app1:eq2}
+x=\alpha^{-1} y.
+\end{equation}
+
+The derivate of the wave function can then be expressed in terms of the variable $y$ by using the chain rule. We have
+\[
+\frac{{\rm d}\psi}{{\rm d}x}=\frac{{\rm d}y}{{\rm d}x}\frac{{\rm d}\psi}{{\rm d}y}=\alpha\frac{{\rm d}\psi}{{\rm d}y}.
+\]
+
+Similarly, the second derivative can be written
+\begin{equation}\label{app1:eq3}
+\frac{{\rm d}^2\psi}{{\rm d}x^2}=\alpha^2\frac{{\rm d}^2\psi}{{\rm d}y^2}.
+\end{equation}
+
+Substituting \eqweblink{Eqs.}{app1:eq2} and~(\ref{app1:eq3}) into \eqweblink{Eq.}{app1:eq1} and dividing the resulting equation
+through with $\alpha^2$, we obtain
+\begin{equation}\label{app1:eq4}
+\frac{{\rm d}^2\psi}{{\rm d}x^2}-\frac{1}{\alpha^4}\frac{m^2\omega^2}{\hbar^2}x^2\psi+\frac{2mE}{\alpha^2\hbar^2}\psi.
+\end{equation}
+
+We may simplify the above equation for the oscillator by choosing
+\[
+\alpha=\sqrt{\frac{m\omega}{\hbar}},
+\]
+and defining
+\begin{equation}\label{app1:eq5}
+\epsilon=\frac{2E}{\hbar\omega}.
+\end{equation}
+
+%The Schr\"{o}dinger equation for the oscillator then assumes the following simple form:
+%\begin{equation}\label{app1:eq6}
+%\frac{{\rm d}^2\psi}{{\rm d}y^2}+(\epsilon-y^2)\psi=0,
+%\end{equation}
+%where the variable $y$ is related to the $x$-coordinate by the equation
+%\[
+%y=\sqrt{\frac{m\omega}{\hbar}}\;x.
+%\]
+
+In this appendix, we shall solve \eqweblink{Eq.}{app1:eq6} using the power series method. We first
+note that the first term in this equation depends upon the $-2$ power of $y$, while
+the other two terms in the equation depend upon the 0 and +2 powers of $y$,
+respectively. Since the equation depends upon more than two different powers of $y$, it
+cannot be solved directly by the power series method. To overcome this difficulty, we
+examine the behavior of the equation for large values of $y$ for which the last term in
+the equation becomes infinite. For, large values of $y$, the term $-y^2\psi$ dominates
+over the term $\epsilon\psi$, which can then be discarded from the equation.
+\end{backchapter}

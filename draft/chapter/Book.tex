@@ -1,0 +1,58 @@
+\documentclass[book,numbers]{elsbook-P04}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm,makeidx,graphicx,colortbl}
+\usepackage{txfonts}
+\usepackage{helvet}
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{
+	linkbordercolor =0 0 0,
+}
+\usepackage{comment}
+\usepackage{moreverb}
+\usepackage{ifthen}
+%\usepackage{showframe}
+%\usepackage[top=1in,bottom=2in,left=0in,right=1.25in]{geometry}
+
+\raggedbottom %% Remove to bottom align on pages.
+
+\makeindex
+
+%\includeonly{BM-Chapters}
+
+\setcitestyle{authoryear}
+\begin{document}
+\Frontmatter
+
+%\include{FM-Chapters}
+
+\Mainmatter
+
+%\include{part1}
+\include{epi_chapter}
+
+%\begin{appendices}
+%\include{appendixA}
+%\include{appendixB}
+%\end{appendices}
+
+%\Backmatter
+
+%\include{BM-Chapters}
+
+\end{document}
+
+% Delete up to four existing variants of BibTeX
+
+% Local Variables:
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") t)
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex %s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") t)
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% TeX-parse-all-errors: t
+% End:
